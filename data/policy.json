@@ -1,0 +1,45 @@
+{
+  "_comment": "lint-copy.mjs 가 읽는 검수 정책. 법무·마케팅 리드가 수정 가능. 근거는 docs/compliance-checklist.md 참고.",
+  "book_price_act": {
+    "_law": "출판문화산업 진흥법 제22조(도서정가제): 가격할인 10% 이내, 가격할인+경제상 이익 합산 15% 이내",
+    "max_discount_percent": 10,
+    "banned_phrases": ["반값", "1+1", "1 + 1", "최저가", "땡처리", "덤핑", "파격 할인", "폭탄 할인", "공짜로 드려요", "무료로 드려요"]
+  },
+  "investment": {
+    "_reason": "재테크·부동산 도서 카피가 투자 권유·수익 보장으로 읽히지 않도록 (표시광고법상 기만·과장 광고 위험)",
+    "banned_patterns": ["수익\\s*보장", "원금\\s*보장", "확정\\s*수익", "무조건\\s*(오른|번|벌|돈)", "100\\s*%\\s*수익", "손해\\s*(없|0)", "누구나\\s*(부자|건물주|억대)", "따라만\\s*하면\\s*(부자|돈|수익)", "월\\s*\\d+\\s*만\\s*원\\s*(보장|확정)"],
+    "caution_patterns": ["\\d+\\s*억", "\\d+\\s*배\\s*수익", "건물주", "파이어족"]
+  },
+  "claims": {
+    "_reason": "광고에 쓰는 수치·순위는 광고주(출판사)가 입증해야 한다. data/claims.json 에 등록된 수치만 사용.",
+    "patterns": ["\\d[\\d,.]*\\s*(만|천)?\\s*부(?![가-힣])", "\\d[\\d,.]*\\s*만\\s*(독자|명|구독자|유튜버|멘토|팔로워|부)", "\\d+\\s*위", "베스트셀러\\s*\\d", "누적\\s*\\d", "돌파", "\\d+\\s*쇄"]
+  },
+  "disclosure": {
+    "_law": "공정위 추천·보증 등에 관한 표시·광고 심사지침: 경제적 이해관계가 있으면 '광고'·'협찬'을 제목/본문 첫 부분에. 영상은 시작과 끝.",
+    "labels": ["광고", "협찬", "유료광고"],
+    "must_be_within_first_chars": 30
+  },
+  "ai": {
+    "_law": "AI 기본법(2026.1.22 시행) 제31조 투명성 + Meta 'AI 정보' · YouTube '변경·합성 콘텐츠' 공개 정책",
+    "disclosure_keywords": ["AI 음성", "AI 내레이션", "AI로 제작", "AI 생성", "생성형 AI", "#AI"]
+  },
+  "platform": {
+    "instagram_caption_max": 2200,
+    "instagram_hashtags_max": 5,
+    "youtube_title_max": 100,
+    "youtube_description_max": 5000,
+    "youtube_tags_total_chars_max": 500,
+    "carousel_min": 2,
+    "carousel_max": 20
+  },
+  "quotes": {
+    "_law": "저작권법 제28조(정당한 범위의 인용) + 출판계약의 홍보 이용 조항. 본문 인용은 편집부 승인 필수.",
+    "max_chars_per_quote": 200,
+    "max_total_quote_chars": 600
+  },
+  "sensitive": [
+    { "pattern": "17\\s*억|빚더미|파산", "approval_key": "ceo_story", "reason": "대표 개인 재정·건강 서사는 대표 본인 승인 후에만 사용" },
+    { "pattern": "사재기", "approval_key": "legal", "reason": "업계 사건 언급은 법무 검토 필요" }
+  ],
+  "tone_warnings": ["충격", "경악", "소름", "역대급", "미쳤다", "실화냐"]
+}

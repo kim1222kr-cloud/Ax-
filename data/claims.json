@@ -1,0 +1,141 @@
+{
+  "_comment": "광고 카피에 쓸 수 있는 수치·순위 등록부. status: verified(제3자 확인) | company(회사 자료 — 입증자료 보관 필요) | unverified(사용 금지). lint-copy.mjs 가 카피의 수치를 여기서 찾는다. 2026-10-04 웹 리서치 기준 초안 — 마케팅 리드가 내부 판매자료로 확정할 것.",
+  "claims": [
+    {
+      "id": "kimsanghyun-50man",
+      "book": "*",
+      "patterns": [
+        "50만"
+      ],
+      "claim": "김상현 작가 '50만 독자'(서점 작가 소개 문구)",
+      "status": "company",
+      "source": "교보문고·YES24 작가 소개",
+      "as_of": "2025",
+      "usage_note": "'50만 독자'로만 표기. '50만 부'는 내부 판매자료 확인 후 사용."
+    },
+    {
+      "id": "naega-jugeumyeon-15man",
+      "book": "naega-jugeumyeon",
+      "patterns": [
+        "15만"
+      ],
+      "claim": "『내가 죽으면 장례식에 누가 와줄까』 15만 부 기념 특별 리커버",
+      "status": "company",
+      "source": "판본명(15만 부 기념 특별 리커버)",
+      "as_of": "2020-01",
+      "usage_note": "'15만 부 기념 리커버' 맥락에서만."
+    },
+    {
+      "id": "naega-jugeumyeon-20man",
+      "book": "naega-jugeumyeon",
+      "patterns": [
+        "20만"
+      ],
+      "claim": "『내가 죽으면 장례식에 누가 와줄까』 누적 약 20만 부",
+      "status": "company",
+      "source": "매경이코노미 2023-09-23 보도(회사 제공 수치)",
+      "as_of": "2023-09",
+      "usage_note": "'20만 부(2023년 기준)'처럼 시점을 함께 표기."
+    },
+    {
+      "id": "dangsineun-10man",
+      "book": "dangsineun-gyeolguk",
+      "patterns": [
+        "10만"
+      ],
+      "claim": "『당신은 결국 무엇이든 해내는 사람』 10만 부 (10만 부 기념 특별 리커버)",
+      "status": "company",
+      "source": "판본명·책 소개 문구",
+      "as_of": "2022~",
+      "usage_note": null
+    },
+    {
+      "id": "dangsineun-1wi",
+      "book": "dangsineun-gyeolguk",
+      "patterns": [
+        "1위"
+      ],
+      "claim": "『당신은 결국 무엇이든 해내는 사람』 에세이 베스트셀러 1위 · 카카오톡 선물하기 1위",
+      "status": "company",
+      "source": "책 소개 문구 (어느 서점·기간 기준인지 미확인)",
+      "as_of": "2022",
+      "usage_note": "서점명·집계 기간을 확인해 함께 표기할 것."
+    },
+    {
+      "id": "up-kyobo-4wi",
+      "book": "up-remember",
+      "patterns": [
+        "4위"
+      ],
+      "claim": "『업』 출간 1주일 만에 교보문고 자기계발 주간 베스트셀러 4위 (2026-03-05 기준)",
+      "status": "verified",
+      "source": "전자신문 2026-03-11, 뉴스핌 2026-02-26",
+      "as_of": "2026-03-05",
+      "usage_note": "'자기계발 주간 4위(교보문고, 2026년 3월 1주)'처럼 출처를 표기. 서점명은 전자신문 보도 기준."
+    },
+    {
+      "id": "heecheolism-120man",
+      "book": "eotteon-gil-jeongdap",
+      "patterns": [
+        "120만"
+      ],
+      "claim": "희철리즘 '120만 긍정 멘토'(책 소개 메인 카피)",
+      "status": "company",
+      "source": "알라딘 책 소개",
+      "as_of": "2026-03",
+      "usage_note": "현재 구독자 수와 다를 수 있음. 저자와 숫자 합의 후 사용."
+    },
+    {
+      "id": "jooeongyu-subscribers",
+      "book": "hoksi-don-yaegi",
+      "patterns": [
+        "60만",
+        "80만"
+      ],
+      "claim": "주언규 구독자 규모 (출처마다 60만/80만으로 다름)",
+      "status": "unverified",
+      "source": "YES24 저자 소개(60만) vs 게시판 카피(80만)",
+      "as_of": "2025",
+      "usage_note": "저자 측과 현재 수치를 확정하기 전 사용 금지."
+    },
+    {
+      "id": "feelm-essay-share",
+      "book": "*",
+      "patterns": [
+        "점유율",
+        "600%"
+      ],
+      "claim": "에세이 분야 점유율 10% 이상·매출 600% 성장 (채용 페이지 회사 소개)",
+      "status": "unverified",
+      "source": "사람인 회사 소개(자기 주장)",
+      "as_of": "2022~23",
+      "usage_note": "대외 광고 카피에 사용 금지(제3자 근거 없음)."
+    },
+    {
+      "id": "heman-aladin-44",
+      "book": "heman-mankeum",
+      "patterns": [
+        "44위",
+        "Top100",
+        "TOP100"
+      ],
+      "claim": "『헤맨 만큼 내 땅이다』 알라딘 에세이 주간 44위 · 종합 Top100 2주",
+      "status": "verified",
+      "source": "알라딘 상품 페이지 순위 표기(2025-12 검색 요약)",
+      "as_of": "2025-12",
+      "usage_note": "'알라딘 에세이 주간 순위'처럼 서점·분야를 함께 표기. 내부 판매자료로 재확인 권장."
+    },
+    {
+      "id": "dajeonghan-10man",
+      "book": "dajeonghan-saram",
+      "patterns": [
+        "10만"
+      ],
+      "claim": "『다정한 사람이 이긴다』 초판 10만 독자(스페셜 양장 리커버 소개 문구)",
+      "status": "company",
+      "source": "교보·YES24 리커버판 소개",
+      "as_of": "2026",
+      "usage_note": "'10만 독자' 표현으로."
+    }
+  ]
+}

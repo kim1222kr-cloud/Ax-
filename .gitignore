@@ -1,0 +1,8 @@
+node_modules/
+.env
+.env.*
+!.env.example
+content/campaigns/*/out/
+content/campaigns/*/.work/
+*.log
+.DS_Store

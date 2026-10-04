@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "FEELM_AGENT": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm run new:*)",
+      "Bash(npm run render:card:*)",
+      "Bash(npm run build:short:*)",
+      "Bash(npm run lint:copy:*)",
+      "Bash(npm run metrics:*)",
+      "Bash(npm test:*)",
+      "Bash(node tools/render-cardnews.mjs:*)",
+      "Bash(node tools/build-shortform.mjs:*)",
+      "Bash(node tools/lint-copy.mjs:*)",
+      "Read(content/**)",
+      "Edit(content/campaigns/**)",
+      "Write(content/campaigns/**)"
+    ],
+    "ask": [
+      "Bash(npm run publish:ig:*)",
+      "Bash(npm run publish:yt:*)",
+      "Bash(node tools/publish-instagram.mjs:*)",
+      "Bash(node tools/publish-youtube.mjs:*)"
+    ],
+    "deny": [
+      "Bash(npm run approve:*)",
+      "Bash(node tools/approve.mjs:*)",
+      "Edit(content/campaigns/**/status.json)",
+      "Write(content/campaigns/**/status.json)",
+      "Edit(data/policy.json)",
+      "Write(data/policy.json)",
+      "Read(.env)",
+      "Read(.env.*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/publish-gate.mjs" }
+        ]
+      }
+    ]
+  }
+}

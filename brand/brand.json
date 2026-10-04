@@ -1,0 +1,90 @@
+{
+  "_comment": "가안(placeholder). 실제 (주)필름 브랜드 가이드(로고, 컬러 HEX, 서체)를 받으면 이 파일만 교체하면 모든 템플릿에 반영됩니다.",
+  "brand": {
+    "name_ko": "필름",
+    "name_en": "FEELM",
+    "slogan": "우리의 이야기는 영화다",
+    "instagram": "@feelmbook",
+    "youtube": "@feelmbook",
+    "website": "feelmgroup.com",
+    "logo": null,
+    "motif": "film-strip"
+  },
+  "fonts": {
+    "sans": "Pretendard",
+    "serif": "Noto Serif KR",
+    "license": "SIL OFL 1.1 — 이미지·영상 상업 이용 가능"
+  },
+  "tracks": {
+    "essay": {
+      "label": "감성 에세이 · 문장카드",
+      "description": "김상현·희철리즘·이해인 등 국내 에세이. 위로·자기확신, 2인칭 구어체, 본문 한 문장 중심.",
+      "colors": {
+        "bg": "#F5EFE4",
+        "surface": "#FFFDF8",
+        "ink": "#2A2724",
+        "muted": "#7A7066",
+        "accent": "#B5523B",
+        "line": "#D9CFC0"
+      },
+      "display_font": "serif",
+      "body_font": "sans",
+      "highlight": "text"
+    },
+    "money": {
+      "label": "재테크 · 경제경영 정보형",
+      "description": "주언규·할미언니·부토리·돈깨비·자본주의학교 등. 숫자 훅, 체크리스트, 실행 단계. 수익 보장 표현 금지.",
+      "colors": {
+        "bg": "#FFFFFF",
+        "surface": "#F3F5F9",
+        "ink": "#14213D",
+        "muted": "#5B6478",
+        "accent": "#F2A516",
+        "line": "#DCE1EA"
+      },
+      "display_font": "sans",
+      "body_font": "sans",
+      "highlight": "marker"
+    },
+    "insight": {
+      "label": "해외 번역서 · 인사이트 요약",
+      "description": "짐 콜린스·블랭크파인·세스 고딘·카스넬슨·데일 카네기 등. 저자 권위 + 핵심 원칙 3~5개 요약.",
+      "colors": {
+        "bg": "#141414",
+        "surface": "#1F1F1F",
+        "ink": "#F4F1EA",
+        "muted": "#A39E94",
+        "accent": "#D9B45A",
+        "line": "#333333"
+      },
+      "display_font": "serif",
+      "body_font": "sans",
+      "highlight": "text"
+    }
+  },
+  "formats": {
+    "card_4x5": {
+      "width": 1080,
+      "height": 1350,
+      "safe": 72
+    },
+    "card_3x4": {
+      "width": 1080,
+      "height": 1440,
+      "safe": 72
+    },
+    "short_9x16": {
+      "width": 1080,
+      "height": 1920,
+      "safe_top": 220,
+      "safe_bottom": 420,
+      "safe_side": 90
+    }
+  },
+  "disclosure": {
+    "ad_label": "광고",
+    "sponsored_label": "협찬",
+    "ai_voice_note": "이 영상의 내레이션은 AI 음성으로 제작되었습니다.",
+    "ai_image_note": "일부 이미지는 생성형 AI로 제작되었습니다."
+  }
+}

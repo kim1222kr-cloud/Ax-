@@ -1,0 +1,19 @@
+{
+  "campaign": "_sample-heman",
+  "errors": 0,
+  "warnings": 2,
+  "issues": [
+    {
+      "level": "warn",
+      "rule": "회사자료수치",
+      "where": "cardnews.slides[5].number",
+      "message": "\"50만 독자\" — 회사 자료 기준(교보문고·YES24 작가 소개, 2025). '50만 독자'로만 표기. '50만 부'는 내부 판매자료 확인 후 사용."
+    },
+    {
+      "level": "warn",
+      "rule": "인용승인",
+      "where": "campaign",
+      "message": "본문 인용이 있습니다. 편집부가 문장과 쪽수를 확인한 뒤 campaign.json approvals.quotes 를 기록하세요."
+    }
+  ]
+}

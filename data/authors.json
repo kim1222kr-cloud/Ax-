@@ -1,0 +1,108 @@
+{
+  "_comment": "저자 협업 프로필(2026-10-04 리서치 기준, 수치는 시점 미상 포함). 협업 전 저자 측과 채널 현황·클립 사용 동의·표기 방식을 확정하고 갱신하세요. risk_notes는 캠페인 착수 전 author-liaison이 재점검합니다.",
+  "authors": [
+    {
+      "id": "kim-sanghyun",
+      "name": "김상현",
+      "role": "(주)필름 대표 · 에세이 작가 (필명 '사소한')",
+      "books": ["geureomedo", "naega-jugeumyeon", "dangsineun-gyeolguk", "heman-mankeum", "nietzsche-buran"],
+      "channels": [
+        { "platform": "youtube", "handle": "@writer_kimsanghyun", "size": "2.3만~3.9만(시점별)", "notes": "롱폼 위주, 쇼츠 미확인" },
+        { "platform": "instagram", "handle": "@s_h93k", "size": "미확인" }
+      ],
+      "voice": "따뜻한 2인칭, 확언형, '마음먹으면 바로 하는 것'",
+      "requires_approval": ["대표 개인 서사(17억 빚·건강)", "대표 계정 게시", "대표 출연 영상"],
+      "risk_notes": ["동명이인 주의: 국대떡볶이 김상현(@sanghyun_kim)"]
+    },
+    {
+      "id": "jooeongyu",
+      "name": "주언규",
+      "role": "유튜버(주언규 joo earn gyu), 전 '신사임당'",
+      "books": ["hoksi-don-yaegi"],
+      "channels": [{ "platform": "youtube", "handle": "주언규 joo earn gyu", "size": "60만(2025-05 책 소개 기준)" }],
+      "voice": "실행·성공법칙, 담백한 경험담",
+      "requires_approval": ["구독자 수 표기(60만/80만 불일치)"],
+      "risk_notes": ["2023-02 영상 불법복제로 활동중단", "2026-02 강의 표절 논란 보도 — 캠페인 전 최신 이슈 확인"]
+    },
+    {
+      "id": "heecheolism",
+      "name": "윤희철(희철리즘)",
+      "role": "여행 유튜버",
+      "books": ["eotteon-gil-jeongdap"],
+      "channels": [{ "platform": "youtube", "handle": "희철리즘", "size": "120만~121만(2026 책 소개)" }],
+      "voice": "긍정·위로, 70개국 여행 경험, 비교와 불안 내려놓기",
+      "requires_approval": ["'120만 긍정 멘토' 표기"],
+      "risk_notes": []
+    },
+    {
+      "id": "halmi-unni",
+      "name": "할미언니",
+      "role": "경제 유튜버 · 외국계 10년차 직장인",
+      "books": ["don-gongbu-halmi"],
+      "channels": [{ "platform": "youtube", "handle": "할미언니", "size": "미확인(책 소개: 누적 조회수 1000만)" }],
+      "voice": "생활 밀착 돈 공부, 불안 해소",
+      "requires_approval": [],
+      "risk_notes": ["[광고] 표기 쇼츠 선례 있음 — 같은 표기 방식 유지"]
+    },
+    {
+      "id": "lee-haein",
+      "name": "이해인",
+      "role": "유튜버(사업하는언니 해니크) · (주)소셜링·바디코 대표",
+      "books": ["gamjeong-gyeolgwa", "dajeonghan-saram"],
+      "channels": [{ "platform": "youtube", "handle": "사업하는언니 해니크", "size": "약 12.2만(시점 미상)" }],
+      "voice": "관계·다정함·결과 중심",
+      "requires_approval": [],
+      "risk_notes": ["저자가 광고대행사 대표 — 저자 채널 게시물의 광고 표기 책임 주체를 계약서에 명확히"]
+    },
+    {
+      "id": "donkkaebi",
+      "name": "이창헌(돈깨비)",
+      "role": "(주)건물에진심 대표 · 부동산 강의",
+      "books": ["yeopjip-geonmulju"],
+      "channels": [{ "platform": "youtube", "handle": "돈깨비(추정)", "size": "미확인" }],
+      "voice": "건물주 실전, 장사·부동산",
+      "requires_approval": [],
+      "risk_notes": ["수익 사례는 개인 사례로 명시, 강의 판매와 책 홍보 혼동 주의"]
+    },
+    {
+      "id": "rosajang",
+      "name": "로사장(김다솔)",
+      "role": "HAXAI·프레젠트랩 대표 (1인 — 공저자 아님)",
+      "books": ["prompt-telling", "agent-workflow"],
+      "channels": [{ "platform": "youtube/class", "handle": "1프로클래스", "size": "미확인" }],
+      "voice": "AI 실무, 비포/애프터 데모",
+      "requires_approval": ["AI 데모 화면에 쓰는 서비스 로고·UI 사용"],
+      "risk_notes": []
+    },
+    {
+      "id": "wonologue",
+      "name": "임승원(원의독백)",
+      "role": "비디오 에세이 크리에이터",
+      "books": ["wonui-dokbaek"],
+      "channels": [{ "platform": "youtube", "handle": "원의독백 Wonologue", "size": "10.3만(시점 미상)" }],
+      "voice": "발견·영감, 감각적 영상 에세이",
+      "requires_approval": [],
+      "risk_notes": []
+    },
+    {
+      "id": "kang-hodong",
+      "name": "강호동(창업오빠)",
+      "role": "라라브레드 대표 · 유튜버 (예능인 강호동과 다른 사람)",
+      "books": ["leverage-circle"],
+      "channels": [{ "platform": "youtube", "handle": "창업오빠 강호동", "size": "약 1만(시점 미상)" }],
+      "voice": "창업·레버리지",
+      "requires_approval": [],
+      "risk_notes": ["동명 예능인과 혼동 주의 — 이름 단독 표기 금지, '창업오빠 강호동'으로"]
+    },
+    {
+      "id": "remember",
+      "name": "리멤버(리멤버앤컴퍼니)",
+      "role": "기업 IP (명함 앱 리멤버, 연재 '프롤로그')",
+      "books": ["up-remember"],
+      "channels": [{ "platform": "app", "handle": "리멤버 앱", "size": "직장인 회원 다수" }],
+      "voice": "프로페셔널 커리어 인터뷰",
+      "requires_approval": ["기업 로고·인터뷰이 초상 사용"],
+      "risk_notes": ["인터뷰이 15인의 초상·발언 사용 범위 확인"]
+    }
+  ]
+}
