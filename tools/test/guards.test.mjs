@@ -47,6 +47,7 @@ const MUST_ALLOW = [
   'git status',
   'ls data/',
   'cp config/env.example /tmp/env.example',
+  'node tools/render-cardnews.mjs content/campaigns/x && cp content/campaigns/x/out/cardnews/contact-sheet.jpg docs/images/a.jpg',
 ];
 for (const c of MUST_ALLOW) {
   test(`게이트 허용: ${c.slice(0, 60)}`, () => assert.ok(['allow', 'verify-not-locked'].includes(inspect(c).decision), `${c} → ${inspect(c).decision}`));
@@ -162,6 +163,50 @@ test('인용: quotes.json 에 없는 문장은 오류, 책 제목 인용은 예�
   await writeFile(path.join(dir, 'cardnews.json'), JSON.stringify(spec));
   const r = await lintCampaign(dir);
   assert.ok(!r.issues.some(i => i.rule === '인용불일치' || i.rule === '인용승인'));
+});
+
+test('인용: 책 제목 라벨을 붙여도 실제 제목과 다르면 오류', async () => {
+  const { lintCampaign } = await import('../lint-copy.mjs');
+  const dir = await campaignFixture();
+  const spec = JSON.parse(await readFile(path.join(dir, 'cardnews.json'), 'utf8'));
+  spec.slides[1] = { type: 'quote', text: '지어낸 멋진 문장', page: '— 책 제목에 담긴 문장' };
+  await writeFile(path.join(dir, 'cardnews.json'), JSON.stringify(spec));
+  assert.ok((await lintCampaign(dir)).issues.some(i => i.rule === '인용불일치' && /도서 제목과 다릅니다/.test(i.message)));
+  spec.slides[1] = { type: 'quote', text: '헤맨 만큼\n**내 땅이다**', page: '— 책 제목에 담긴 문장' };
+  await writeFile(path.join(dir, 'cardnews.json'), JSON.stringify(spec));
+  assert.ok(!(await lintCampaign(dir)).issues.some(i => i.rule === '인용불일치'));
+});
+
+test('승인: 레드 티어 최종 승인은 대표만', async () => {
+  const dir = await campaignFixture();
+  await writeFile(path.join(dir, 'campaign.json'), JSON.stringify({ book: 'heman-mankeum', risk_tier: 'red' }));
+  const spec = JSON.parse(await readFile(path.join(dir, 'cardnews.json'), 'utf8'));
+  spec.slides.splice(1, 1); // 인용 제거
+  await writeFile(path.join(dir, 'cardnews.json'), JSON.stringify(spec));
+  await asHuman(async () => {
+    await approve(dir, { stage: 'plan', by: '리드' });
+    await approve(dir, { stage: 'draft', by: '리드' });
+    await assert.rejects(approve(dir, { stage: 'publish', by: '리드' }), /대표/);
+    await approve(dir, { stage: 'publish', by: '김상현' });
+  });
+});
+
+test('저자 점검: risk_notes 저자는 발행일 7일 이내 점검 필요', async () => {
+  const { authorCheckStatus } = await import('../lib/campaign.mjs');
+  const r = await mkdtemp(path.join(os.tmpdir(), 'feelm-ac-'));
+  await mkdir(path.join(r, 'data'), { recursive: true });
+  await mkdir(path.join(r, 'content/campaigns/_planning/author-check'), { recursive: true });
+  await writeFile(path.join(r, 'data/authors.json'), JSON.stringify({ authors: [{ id: 'joo', books: ['hoksi'], risk_notes: ['논란'] }, { id: 'safe', books: ['other'], risk_notes: [] }] }));
+  const dir = path.join(r, 'content/campaigns/2026-10-20-x');
+  await mkdir(dir, { recursive: true });
+  await writeFile(path.join(dir, 'campaign.json'), JSON.stringify({ book: 'hoksi', scheduled_at: '2026-10-20T19:00:00+09:00' }));
+  let s = await authorCheckStatus(dir, r);
+  assert.equal(s.length, 1);
+  assert.equal(s[0].ok, false);
+  await writeFile(path.join(r, 'content/campaigns/_planning/author-check/joo-2026-10-04.md'), '#');
+  assert.equal((await authorCheckStatus(dir, r))[0].ok, false); // 16일 전 → 만료
+  await writeFile(path.join(r, 'content/campaigns/_planning/author-check/joo-2026-10-15.md'), '#');
+  assert.equal((await authorCheckStatus(dir, r))[0].ok, true);
 });
 
 test('큐레이션: featured_books 가 있으면 수치 사용 금지', async () => {

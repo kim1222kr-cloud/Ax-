@@ -18,6 +18,16 @@
 - [ ] `permissions.disableBypassPermissionsMode: "disable"`
 - [ ] deny `Read(.env.*)` → `Read(.env.local)`, `Read(.env.production)` 로 좁히기(.env.example 은 config/env.example 로 이동해 두었음)
 
+## 2026-10-04 · /make 리허설(compliance-gate·render-producer) 제안
+- [x] lint: '책 제목' 라벨 인용은 카탈로그 제목과 일치할 때만 인정 (2026-10-04 반영, 회귀 테스트 추가)
+- [x] check:approval: risk_notes 저자의 발행일 7일 이내 author-check 여부 경고 (반영)
+- [x] approve: 레드 최종 승인자=approvers.json ceo 검증, --by 명단 불일치 경고 (반영)
+- [x] compliance-checklist A: 대표 저서 자사 홍보 vs 대표 출연·개인 계정 기준 명문화 (반영)
+- [x] brand.json essay muted #7A7066 → #6B6158 (대비 4.5:1) (반영)
+- [x] build:short 가 out/shortform/contact-sheet.jpg 생성 — 렌더 프로듀서가 영상 장면을 눈으로 점검 가능 (반영)
+- [ ] 숏폼 상단 헤더(브랜드·책 제목)를 상단 안전영역 아래로 내릴지 — 디자인 결정 필요(현재 장식 요소로 유지)
+- [ ] 표지 없을 때 플레이스홀더를 더 작게/테두리형으로 — 실제 표지 수급 후 재평가
+
 ### 등록부(data/claims.json)
 - [ ] 내부 판매자료로 company 등급 수치 확정(부수·기준일), '1위'의 서점·집계 기간 확정
 - [ ] 주언규 현재 구독자 수 저자 측과 합의 후 등록(지금은 unverified)

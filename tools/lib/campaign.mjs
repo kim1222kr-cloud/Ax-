@@ -3,7 +3,7 @@
 // status.json 은 사람(approve.mjs)과 발행 스크립트만 쓴다. 에이전트는 settings deny·훅으로 막혀 있다.
 import path from 'node:path';
 import { readdir } from 'node:fs/promises';
-import { readJson, writeJson, exists, sha256File } from './common.mjs';
+import { readJson, writeJson, exists, sha256File, ROOT } from './common.mjs';
 
 export const STAGES = ['brief', 'plan_approved', 'draft_approved', 'publish_approved', 'published'];
 export const APPROVAL_STAGES = { plan: 'plan_approved', draft: 'draft_approved', publish: 'publish_approved' };
@@ -90,6 +90,27 @@ export async function verifyPublishApproval(dir) {
   return { ok: true, approval };
 }
 
+// risk_notes 가 있는 저자는 발행일 기준 7일 이내 author-check 가 있어야 한다
+export async function authorCheckStatus(dir, root = ROOT) {
+  const metaPath = path.join(dir, 'campaign.json');
+  if (!(await exists(metaPath))) return [];
+  const meta = await readJson(metaPath);
+  const authorsPath = path.join(root, 'data', 'authors.json');
+  const { authors = [] } = (await exists(authorsPath)) ? await readJson(authorsPath) : {};
+  const books = new Set([meta.book, ...(meta.featured_books || [])].filter(Boolean));
+  const targets = authors.filter(a => (a.risk_notes || []).length && ((a.books || []).some(b => books.has(b)) || a.id === meta.author_collab?.author_id));
+  const checkDir = path.join(root, 'content', 'campaigns', '_planning', 'author-check');
+  const files = (await exists(checkDir)) ? await readdir(checkDir) : [];
+  const ref = new Date((meta.scheduled_at || new Date().toISOString()).slice(0, 10) + 'T00:00:00Z');
+  return targets.map(a => {
+    const dates = files.map(f => f.match(new RegExp(`^${a.id}-(\\d{4}-\\d{2}-\\d{2})\\.md$`))?.[1]).filter(Boolean).sort();
+    const latest = dates.at(-1) || null;
+    const ageDays = latest ? Math.round((ref - new Date(latest + 'T00:00:00Z')) / 86400000) : null;
+    const ok = latest !== null && ageDays <= 7 && ageDays >= -1;
+    return { author: a.id, latest, publish_date: ref.toISOString().slice(0, 10), ok, reason: ok ? '' : latest ? `마지막 점검 ${latest} — 발행일(${ref.toISOString().slice(0, 10)}) 7일 이내 재점검 필요` : '저자 점검(author-check) 기록 없음' };
+  });
+}
+
 // 승인 상태 요약 (읽기 전용: npm run check:approval)
 export async function approvalReport(dir) {
   const status = await loadStatus(dir);
@@ -104,5 +125,6 @@ export async function approvalReport(dir) {
     draft: draft ? { by: draft.by, at: draft.at, changed_since: diffHashes(draft.hashes, now) } : null,
     publish: publish ? { by: publish.by, at: publish.at, changed_since: diffHashes(publish.hashes, now) } : null,
     published: status.published || [],
+    author_checks: await authorCheckStatus(dir),
   };
 }

@@ -42,7 +42,9 @@ export function inspect(cmd) {
   const protectedPath = new RegExp(`(^|[\\s'"=(/])${P}`);
   const redirectInto = new RegExp(`>{1,2}\\s*['"]?${P}`);
   const mutating = /(\btee\b|\bcp\b|\bmv\b|\bsed\s+(-[a-zA-Z]*i|--in-place)|\brm\b|\bln\b|\brsync\b|\btruncate\b|\bchmod\b|\bdd\b|\binstall\b|\bunlink\b|\bgit\s+(checkout|restore|reset|apply|stash)\b)/;
-  if (redirectInto.test(c) || (protectedPath.test(c) && mutating.test(c))) {
+  // 명령 구간(&&, ||, ;, |, 줄바꿈)별로 판단: 같은 구간 안에 '변경 동작 + 보호 경로'가 있을 때만 차단
+  const segments = c.split(/&&|\|\||[;|\n]/);
+  if (redirectInto.test(c) || segments.some(s => protectedPath.test(s) && mutating.test(s))) {
     return deny('data/·brand/·templates/·tools/·.claude/ 는 셸로 수정할 수 없습니다(정책·등록부·도구 보호). 변경 제안은 _planning/registry-proposals.md 에 적으세요.');
   }
   if (/\bcd\s+(\.\/)?(tools|data|brand|templates|\.claude)\b/.test(c)) {

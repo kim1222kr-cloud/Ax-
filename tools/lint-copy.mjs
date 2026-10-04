@@ -104,6 +104,18 @@ export async function lintCampaign(dir) {
     if (it.kind === 'quote' && t.length > policy.quotes.max_chars_per_quote) add('warn', '인용범위', it.where, `인용 ${t.length}자 — ${policy.quotes.max_chars_per_quote}자 이내 권장.`);
   }
 
+  // R7-a '책 제목 문장'으로 표기한 인용은 실제 도서 제목(카탈로그)과 일치해야 한다 — 출처 라벨만 붙여 원문 대조를 피하는 것을 막는다
+  const titleQuotes = items.filter(i => i.kind === 'title_quote');
+  if (titleQuotes.length) {
+    const { books: catalogBooks = [] } = await readJson(path.join(ROOT, 'data', 'catalog.json'));
+    const slugs = new Set([meta.book, c.cardnews?.book, c.shortform?.book, ...(meta.featured_books || [])].filter(Boolean));
+    const norm = s => plain(s).replace(/[\s『』「」《》"'“”‘’.,!?·…—-]/g, '');
+    const titles = catalogBooks.filter(b => slugs.has(b.slug)).map(b => norm(b.title));
+    for (const q of titleQuotes) {
+      if (!titles.includes(norm(q.text))) add('error', '인용불일치', q.where, `'책 제목에 담긴 문장'으로 표기했지만 도서 제목과 다릅니다("${q.text.slice(0, 30)}"). 본문 문장이면 편집부 원문(assets/quotes.json)으로 쓰세요.`);
+    }
+  }
+
   // R7 인용 승인·총량
   const quotes = items.filter(i => i.kind === 'quote');
   const totalQuote = quotes.reduce((n, q) => n + q.text.length, 0);

@@ -1,0 +1,14 @@
+{
+  "format_id": "F01",
+  "risk_tier": "green",
+  "sponsored": false,
+  "author_collab": null,
+  "deliverables": [
+    "cardnews",
+    "shortform"
+  ],
+  "featured_books": [],
+  "primary_metric": "saves_rate",
+  "needs_grants": [],
+  "written_at": "2026-10-04"
+}

@@ -1,0 +1,23 @@
+{
+  "track": "essay",
+  "format": "short_9x16",
+  "book": "heman-mankeum",
+  "book_title": "헤맨 만큼 내 땅이다",
+  "disclosure": null,
+  "voice": { "provider": "none" },
+  "bgm": null,
+  "cover_scene": 0,
+  "scenes": [
+    { "type": "hook", "text": "올해, 생각보다\n**멀리 돌아왔나요?**", "duration": 2.6, "motion": "zoom" },
+    { "type": "caption", "text": "계획은 자꾸 미뤄지고\n남들은 앞서가는 것 같고", "duration": 2.8 },
+    { "type": "caption", "text": "그렇게 헤맨 시간,\n정말 **잃어버린 시간**일까요?", "duration": 2.8 },
+    { "type": "quote", "text": "헤맨 만큼\n**내 땅이다**", "source": "— 책 제목에 담긴 문장", "duration": 3.2 },
+    { "type": "book", "title": "헤맨 만큼 내 땅이다", "author": "작가 김상현 지음 · 필름", "copy": "시행착오는 자산이고,\n**성장은 보상이다**", "duration": 3.2 },
+    { "type": "cta", "text": "올해가 길었던 친구에게\n**보내주세요**", "handle": "필름 출판사", "sub": "프로필 링크에서 책을 만나보세요", "duration": 2.6 }
+  ],
+  "title": "올해, 생각보다 멀리 돌아왔나요? #헤맨만큼내땅이다",
+  "description": "멀리 돌아온 길도, 헤맨 시간도 결국 당신의 땅이 됩니다.\n작가 김상현 『헤맨 만큼 내 땅이다』(필름)\n\n#에세이추천 #책추천",
+  "tags": ["헤맨 만큼 내 땅이다", "작가 김상현", "에세이 추천", "책 추천", "필름출판사"],
+  "caption": "올해, 생각보다 멀리 돌아왔나요?\n헤맨 시간도 결국 당신의 땅이 됩니다.\n\n작가 김상현 『헤맨 만큼 내 땅이다』 · 필름\n📖 프로필 링크",
+  "hashtags": ["#필름출판사", "#헤맨만큼내땅이다", "#작가김상현", "#에세이추천", "#책추천"]
+}

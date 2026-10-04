@@ -19,5 +19,6 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
     console.log(`  ${line('시안(draft)', r.draft)}`);
     console.log(`  ${line('최종(publish)', r.publish)}`);
     for (const p of r.published) console.log(`  발행: ${p.platform}/${p.type} ${p.permalink || p.url || ''} (${p.at})`);
+    for (const x of r.author_checks) console.log(`  저자 점검 ${x.author}: ${x.ok ? `✅ ${x.latest}` : `⚠️ ${x.reason}`}`);
   }).catch(e => { console.error(`✖ ${e.message}`); process.exit(1); });
 }

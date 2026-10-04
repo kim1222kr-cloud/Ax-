@@ -14,7 +14,7 @@
 //     최종 승인 이후 재작업이 필요할 때. 기존 시안·최종 승인을 무효화하고 stage 를 plan_approved 로 되돌린다.
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
-import { parseArgs, campaignDir, exists } from './lib/common.mjs';
+import { parseArgs, campaignDir, exists, readJson, ROOT } from './lib/common.mjs';
 import { loadStatus, saveStatus, fingerprint, planFingerprint, diffHashes, latestApproval, APPROVAL_STAGES, GRANT_KEYS } from './lib/campaign.mjs';
 import { lintCampaign } from './lint-copy.mjs';
 
@@ -48,6 +48,12 @@ export async function approve(dir, { stage, by, note }) {
     if (!Object.keys(hashes).some(k => k.startsWith('out/'))) throw new Error('렌더 결과(out/)가 없습니다. 시안을 먼저 만드세요.');
   }
   if (stage === 'publish') {
+    // 레드 티어 최종 승인은 대표만 (data/approvers.json ceo.name)
+    const meta = await readJson(path.join(dir, 'campaign.json'));
+    const approvers = (await exists(path.join(ROOT, 'data', 'approvers.json'))) ? await readJson(path.join(ROOT, 'data', 'approvers.json')) : {};
+    if (meta.risk_tier === 'red' && approvers.ceo?.name && by !== approvers.ceo.name) {
+      throw new Error(`레드 티어 캠페인의 최종 승인은 대표(${approvers.ceo.name})만 할 수 있습니다.`);
+    }
     if (lint.issues.some(i => i.rule === '인용승인' && i.where === 'campaign')) {
       throw new Error('본문 인용이 있는데 편집부 grant(quotes)가 없습니다. 먼저 `--grant quotes --by <편집부> --ids …` 를 기록하세요.');
     }
@@ -105,6 +111,11 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const a = parseArgs(process.argv.slice(2));
   const dir = campaignDir(a._[0]);
   const name = path.basename(dir);
+  // --by 표기가 승인자 명단에 없으면 경고(명단이 비어 있으면 채우라고 안내)
+  readJson(path.join(ROOT, 'data', 'approvers.json')).then(ap => {
+    const names = Object.values(ap).map(v => v?.name).filter(Boolean);
+    if (a.by && a.by !== true && !names.includes(a.by)) console.warn(`⚠️ '${a.by}' 는 data/approvers.json 명단에 없습니다${names.length ? '' : '(명단이 비어 있음 — 이름을 채워 주세요)'}.`);
+  }).catch(() => {});
   const run = a.grant
     ? grant(dir, { key: a.grant, by: a.by, ids: a.ids, note: a.note }).then(g => `✔ ${name}: grant '${a.grant}' 기록 (${g.by}, ${g.at})${g.ids ? ` · ids ${g.ids.join(',')}` : ''}`)
     : a.reopen

@@ -156,8 +156,11 @@ export async function buildShortform(dir, { noTts = false, allowOverflow = false
     await copyFile(joined, final);
   }
 
-  // 5) 커버 이미지 + 자막(SRT)
+  // 5) 커버 이미지 + 장면 컨택트 시트(검수용) + 자막(SRT)
   await run(ff, ['-y', '-i', path.join(work, `scene-${spec.cover_scene ?? 0}.png`), '-q:v', '3', path.join(outDir, 'cover.jpg')]);
+  const cols = Math.min(6, scenes.length), rows = Math.ceil(scenes.length / cols);
+  await run(ff, ['-y', '-framerate', '1', '-start_number', '0', '-i', path.join(work, 'scene-%d.png'),
+    '-vf', `scale=270:480,tile=${cols}x${rows}:padding=8:color=0x222222`, '-frames:v', '1', '-q:v', '3', path.join(outDir, 'contact-sheet.jpg')]);
   const srt = timeline
     .filter(seg => seg.narration)
     .map((seg, k) => `${k + 1}\n${srtTime(seg.start)} --> ${srtTime(seg.start + seg.dur - 0.05)}\n${seg.narration}\n`)

@@ -68,6 +68,15 @@ content/campaigns/   캠페인 폴더 · _planning(주간 계획·리포트·실
 docs/                리서치 · 설계 · 검수 · 셋업
 ```
 
+## 리허설 결과 (2026-10-04)
+- `/weekly-plan 2026-W42 --n 3` 실행 → 2주차 그린 파일럿 3건 기획안 생성, **G1(기획 승인) 대기 중**: [plan.md](content/campaigns/_planning/2026-W42/plan.md)
+  - 10/14(수) F01 『헤맨 만큼 내 땅이다』 문장 처방 카드 · 10/15(목) F02 MBTI 1회차 INFP · 10/16(금) F04 『생존 지능』 3줄 인사이트 숏폼
+- `/make` 리허설(스크래치 폴더, 승인 가정) → compliance **PASS**, 브랜드 **4.0** — [예시 폴더](content/campaigns/_rehearsal-heman-sentence/)
+
+| 카드뉴스 | 숏폼 장면 |
+|---|---|
+| ![](docs/images/rehearsal-cardnews.jpg) | ![](docs/images/rehearsal-shortform.jpg) |
+
 ## 지금 상태와 다음 단계
 - ✅ 리서치, 팀 설계, 에이전트·스킬·도구·검수·승인 잠금·게이트 훅, 템플릿 12종, 회귀 테스트
 - ⏳ 사람이 할 일: [docs/setup.md](docs/setup.md) — API 키·유튜브 채널·승인자·수치 확정·브랜드 가이드·권한 강화
