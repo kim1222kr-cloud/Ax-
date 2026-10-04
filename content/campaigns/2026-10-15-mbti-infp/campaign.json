@@ -1,0 +1,29 @@
+{
+  "id": "2026-10-15-mbti-infp",
+  "book": "jal-salgo-sipeun",
+  "book_title": "잘 살고 싶은 마음이 어렵게 느껴질 때",
+  "author": "일홍",
+  "track": "essay",
+  "format_id": "F02",
+  "series": "F02",
+  "risk_tier": "green",
+  "deliverables": [
+    "cardnews"
+  ],
+  "channels": [
+    "instagram"
+  ],
+  "goal": "그린 파일럿 2/3: F02 MBTI 책 처방 1회차(INFP). 필름 백리스트 에세이 3권을 정체성 기반 큐레이션으로 묶어 태그·DM 공유로 비팔로워 도달을 늘리고, 시리즈 회차 운영 틀(고정 kicker·캡션 첫 줄·회차 기록)을 세운다",
+  "target_reader": "자신을 INFP라고 소개하거나 INFP 친구를 둔 2030 에세이 독자",
+  "key_message": "생각이 많고 마음이 깊은 INFP에게, 필름이 펴낸 책 중 세 권을 건넵니다",
+  "primary_metric": "shares_rate",
+  "experiment": null,
+  "featured_books": [
+    "ne-saebyeok",
+    "jeongwon-kkot"
+  ],
+  "sponsored": false,
+  "author_collab": null,
+  "scheduled_at": "2026-10-15T19:00:00+09:00",
+  "owner": "마케팅 리드"
+}

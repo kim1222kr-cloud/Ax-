@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-16-streetwise-3lines",
+  "book": "streetwise",
+  "book_title": "생존 지능",
+  "author": "로이드 블랭크파인 (박선영 역)",
+  "track": "insight",
+  "format_id": "F04",
+  "series": null,
+  "risk_tier": "green",
+  "deliverables": [
+    "shortform"
+  ],
+  "channels": [
+    "instagram",
+    "youtube"
+  ],
+  "goal": "그린 파일럿 3/3: 캠페인 이력이 없는 번역서 신간 『생존 지능』을 요약형 3줄 인사이트 숏폼(무TTS, bgm 없음, 타이포만)으로 알리고, 권리 조건이 없는 번역서의 기본 경로(직접 인용 0, 저자 사진 없음)를 검증한다",
+  "target_reader": "커리어 위기나 조직의 불확실성 앞에서 실전 판단력을 기르고 싶은 3040 직장인·경제경영서 독자",
+  "key_message": "전 골드만삭스 CEO가 말하는 생존 지능을, 월요일 출근길에 바로 꺼내 쓸 세 줄로 정리했습니다",
+  "primary_metric": "reels_watch_ratio",
+  "experiment": null,
+  "featured_books": [],
+  "sponsored": false,
+  "author_collab": null,
+  "scheduled_at": "2026-10-16T19:00:00+09:00",
+  "owner": "마케팅 리드"
+}

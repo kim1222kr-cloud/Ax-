@@ -1,0 +1,28 @@
+{
+  "id": "2026-10-14-heman-sentence",
+  "book": "heman-mankeum",
+  "book_title": "헤맨 만큼 내 땅이다",
+  "author": "김상현",
+  "track": "essay",
+  "format_id": "F01",
+  "series": null,
+  "risk_tier": "green",
+  "deliverables": [
+    "cardnews",
+    "shortform"
+  ],
+  "channels": [
+    "instagram",
+    "youtube"
+  ],
+  "goal": "그린 파일럿 1/3: 작가 김상현 신작의 제목 문장을 문장 처방 카드(캐러셀+숏폼 컷다운)로 전달해 저장을 끌어내고, 3단계 승인과 무TTS 숏폼 파이프라인을 실제 운영으로 검증한다",
+  "target_reader": "10월 중순, 올해 계획이 생각대로 풀리지 않았다고 느끼는 2030 직장인·취업 준비생",
+  "key_message": "멀리 돌아온 길도, 헤맨 시간도 결국 당신의 땅이 됩니다",
+  "primary_metric": "saves_rate",
+  "experiment": null,
+  "featured_books": [],
+  "sponsored": false,
+  "author_collab": null,
+  "scheduled_at": "2026-10-14T19:00:00+09:00",
+  "owner": "마케팅 리드"
+}
