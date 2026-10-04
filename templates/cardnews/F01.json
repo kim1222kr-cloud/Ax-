@@ -1,0 +1,20 @@
+{
+  "_template": { "format_id": "F01", "name": "문장 처방 카드", "tier": "green", "note": "{{…}} 를 채우고 _template 키는 지운다. stat 슬라이드는 claims.json 등록 수치가 없으면 삭제." },
+  "track": "essay",
+  "format": "card_4x5",
+  "book": "{{도서 slug}}",
+  "book_title": "『{{도서명}}』 {{저자}} · 필름",
+  "disclosure": null,
+  "ai_label": false,
+  "slides": [
+    { "type": "cover", "kicker": "{{상황 질문: 요즘 ~한 것 같다면}}", "title": "{{2인칭 확언 1줄}}\n**{{핵심 단어}}**{{2줄}}", "subtitle": "{{부제 1~2줄}}" },
+    { "type": "text", "title": "{{공감 상황 제목 2줄 이내}}", "body": "{{공감 상황 2~4줄}}\n\n{{질문으로 넘기기}}" },
+    { "type": "quote", "text": "{{assets/quotes.json 승인 문장 그대로}}", "page": "{{p.000 또는 '— 책 제목에 담긴 문장'}}" },
+    { "type": "text", "title": "{{2인칭 해석 제목}}", "body": "{{문장을 오늘의 장면으로 옮기는 2~3줄}}" },
+    { "type": "stat", "number": "{{claims 등록 수치}}", "label": "{{수치의 의미 2줄}}", "note": "{{출처·시점}}" },
+    { "type": "book", "title": "{{도서명}}", "author": "{{저자}} 지음 · 필름", "copy": "{{한 줄 카피}}" },
+    { "type": "cta", "title": "{{확언형 마무리 2줄}}", "body": "{{공유 동기 1줄}}", "actions": ["저장해두고 다시 읽기", "이 문장이 필요한 친구에게 보내기"] }
+  ],
+  "caption": "{{첫 줄: 훅 반복}}\n\n{{본문 2~3줄}}\n\n『{{도서명}}』\n📖 프로필 링크에서 만나보세요",
+  "hashtags": ["#필름출판사", "#{{도서명붙여쓰기}}", "#{{저자}}", "#에세이추천", "#책스타그램"]
+}

@@ -65,7 +65,11 @@ test('AI표시: AI 음성을 쓰면 설명·캡션에 표시가 필요', async (
 test('민감소재: 대표 개인 서사는 승인 없으면 오류', async () => {
   const dir = await fixture({ cardnews: card([{ type: 'cover', title: '17억 빚에서 다시 일어선 이야기' }, { type: 'cta', title: 'B' }]) });
   assert.ok(rules(await lintCampaign(dir)).includes('민감소재'));
-  const ok = await fixture({ meta: { approvals: { ceo_story: '김상현 2026-10-04' } }, cardnews: card([{ type: 'cover', title: '17억 빚에서 다시 일어선 이야기' }, { type: 'cta', title: 'B' }]) });
+  // campaign.json 의 approvals 는 신뢰하지 않는다(에이전트가 쓸 수 있으므로)
+  const forged = await fixture({ meta: { approvals: { ceo_story: '위조' } }, cardnews: card([{ type: 'cover', title: '17억 빚에서 다시 일어선 이야기' }, { type: 'cta', title: 'B' }]) });
+  assert.ok(rules(await lintCampaign(forged)).includes('민감소재'));
+  const ok = await fixture({ cardnews: card([{ type: 'cover', title: '17억 빚에서 다시 일어선 이야기' }, { type: 'cta', title: 'B' }]) });
+  await saveStatus(ok, { stage: 'plan_approved', approvals: [], grants: { ceo_story: { by: '김상현', at: '2026-10-04' } }, published: [] });
   assert.ok(!rules(await lintCampaign(ok)).includes('민감소재'));
 });
 

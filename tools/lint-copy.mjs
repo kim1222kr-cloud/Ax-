@@ -12,10 +12,13 @@ const IG_API_CAROUSEL_MAX = 10;
 // 검사 대상 텍스트를 위치 정보와 함께 모은다
 function collect({ cardnews, shortform }) {
   const items = [];
+  // 책 제목 자체를 인용 카드로 쓰는 경우(출처를 '책 제목'으로 밝힘)는 본문 인용이 아니다
+  const titleRef = s => /책\s*제목/.test(`${s.page || ''} ${s.source || ''}`);
+  const quoteKind = (s, k) => (s.type === 'quote' && k === 'text' ? (titleRef(s) ? 'title_quote' : 'quote') : 'copy');
   const push = (where, text, kind = 'copy') => { if (text) items.push({ where, text: plain(text), kind }); };
   if (cardnews) {
     (cardnews.slides || []).forEach((s, i) => {
-      for (const k of ['kicker', 'title', 'subtitle', 'text', 'body', 'note', 'copy']) push(`cardnews.slides[${i + 1}].${k}`, s[k], s.type === 'quote' && k === 'text' ? 'quote' : 'copy');
+      for (const k of ['kicker', 'title', 'subtitle', 'text', 'body', 'note', 'copy']) push(`cardnews.slides[${i + 1}].${k}`, s[k], quoteKind(s, k));
       // stat 슬라이드의 숫자는 항상 '주장'으로 본다 (숫자+라벨을 함께 검사)
       if (s.type === 'stat') push(`cardnews.slides[${i + 1}].number`, `${s.number ?? ''} ${s.label ?? ''}`, 'stat');
       else push(`cardnews.slides[${i + 1}].label`, s.label);
@@ -26,7 +29,7 @@ function collect({ cardnews, shortform }) {
   }
   if (shortform) {
     (shortform.scenes || []).forEach((s, i) => {
-      for (const k of ['text', 'sub', 'title', 'copy', 'narration']) push(`shortform.scenes[${i + 1}].${k}`, s[k], s.type === 'quote' && k === 'text' ? 'quote' : 'copy');
+      for (const k of ['text', 'sub', 'title', 'copy', 'narration']) push(`shortform.scenes[${i + 1}].${k}`, s[k], quoteKind(s, k));
     });
     push('shortform.title', shortform.title, 'title');
     push('shortform.description', shortform.description, 'caption');
@@ -42,7 +45,8 @@ export async function lintCampaign(dir) {
   const claims = (await exists(claimsPath)) ? (await readJson(claimsPath)).claims || [] : [];
   const c = await loadCampaign(dir);
   const meta = c.meta;
-  const approvals = meta.approvals || {};
+  // 사람 승인 기록(grants)은 status.json 에만 있다 — campaign.json 은 에이전트가 쓸 수 있으므로 신뢰하지 않는다
+  const grants = c.status?.grants || {};
   const items = collect(c);
   const issues = [];
   const add = (level, rule, where, message) => issues.push({ level, rule, where, message });
@@ -76,6 +80,10 @@ export async function lintCampaign(dir) {
         seen.add(m.index);
         // 수치 주변(앞뒤 20자) 문맥에 등록된 패턴이 있어야 같은 주장으로 본다
         const near = t.slice(Math.max(0, m.index - 20), m.index + m[0].length + 20);
+        if ((meta.featured_books || []).length) {
+          add('error', '큐레이션수치', it.where, `"${m[0]}" — 여러 권을 소개하는 큐레이션에는 판매 수치·순위를 쓰지 않습니다.`);
+          continue;
+        }
         const books = new Set(['*', meta.book, c.cardnews?.book, c.shortform?.book].filter(Boolean));
         const hit = claims.find(cl => books.has(cl.book) && (cl.patterns || []).some(cp => near.includes(cp)));
         if (!hit || hit.status === 'unverified') add('error', '미입증수치', it.where, `"${m[0]}" — data/claims.json 에 근거가 등록된 수치만 쓸 수 있습니다.`);
@@ -86,7 +94,7 @@ export async function lintCampaign(dir) {
     // R8 민감 소재
     for (const s of policy.sensitive) {
       const m = t.match(new RegExp(s.pattern));
-      if (m && !approvals[s.approval_key]) add('error', '민감소재', it.where, `"${m[0]}" — ${s.reason} (campaign.json approvals.${s.approval_key} 필요)`);
+      if (m && !grants[s.approval_key]) add('error', '민감소재', it.where, `"${m[0]}" — ${s.reason} (담당자 grant 필요: npm run approve -- <캠페인> --grant ${s.approval_key} --by <이름>)`);
     }
 
     // R10 톤
@@ -100,7 +108,19 @@ export async function lintCampaign(dir) {
   const quotes = items.filter(i => i.kind === 'quote');
   const totalQuote = quotes.reduce((n, q) => n + q.text.length, 0);
   if (totalQuote > policy.quotes.max_total_quote_chars) add('warn', '인용범위', 'campaign', `본문 인용 총 ${totalQuote}자 — ${policy.quotes.max_total_quote_chars}자 이내 권장.`);
-  if (quotes.length && !approvals.quotes) add('warn', '인용승인', 'campaign', '본문 인용이 있습니다. 편집부가 문장과 쪽수를 확인한 뒤 campaign.json approvals.quotes 를 기록하세요.');
+  if (quotes.length && !grants.quotes) add('warn', '인용승인', 'campaign', '본문 인용이 있습니다. 최종 승인 전에 편집부가 문장·쪽수를 확인하고 grant 를 기록해야 합니다: npm run approve -- <캠페인> --grant quotes --by <이름> --ids q1,q2');
+  // 인용은 assets/quotes.json(편집부 원문 장부)과 글자 그대로 일치해야 한다
+  const quotesPath = path.join(dir, 'assets', 'quotes.json');
+  if (quotes.length && (await exists(quotesPath))) {
+    const norm = s => plain(s).replace(/\s+/g, '');
+    const ledger = (await readJson(quotesPath)).quotes || [];
+    const approvedIds = new Set(grants.quotes?.ids || []);
+    for (const q of quotes) {
+      const hit = ledger.find(b => norm(b.text) === norm(q.text));
+      if (!hit) add('error', '인용불일치', q.where, 'assets/quotes.json 에 없는 문장을 인용으로 썼습니다. 편집부 원문을 글자 그대로 쓰세요.');
+      else if (grants.quotes?.ids && !approvedIds.has(hit.id)) add('warn', '인용승인', q.where, `인용 ${hit.id} 는 편집부 승인 목록(grants.quotes.ids)에 없습니다.`);
+    }
+  }
 
   // R4 광고 표기
   const needsAd = meta.sponsored === true || !!meta.author_collab?.paid;

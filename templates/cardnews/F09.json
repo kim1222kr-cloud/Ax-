@@ -1,0 +1,19 @@
+{
+  "_template": { "format_id": "F09", "name": "다시 읽히는 책 — 기념일·리커버·이정표", "tier": "green", "note": "npm run catalog 의 60일 내 기념일 연동. 수치는 claims 등록분+시점(없으면 stat 삭제). 허구·익명 독자 사연 금지. 굿즈 증정 조건이 붙으면 레드." },
+  "track": "essay",
+  "format": "card_4x5",
+  "book": "{{도서 slug}}",
+  "book_title": "『{{도서명}}』 {{저자}} · 필름",
+  "disclosure": null,
+  "ai_label": false,
+  "slides": [
+    { "type": "cover", "kicker": "출간 {{N}}주년", "title": "{{N}}년째\n**읽히는 문장**", "subtitle": "『{{도서명}}』 {{저자}}" },
+    { "type": "stat", "number": "{{claims 등록 수치}}", "label": "{{의미 2줄}}", "note": "{{출처·시점}}" },
+    { "type": "text", "title": "{{책·리커버 이야기 제목}}", "body": "{{출간 당시·리커버 디자인 등 사실 2~3줄}}" },
+    { "type": "quote", "text": "{{승인 문장 또는 책 제목 문장}}", "page": "{{p.000 또는 '— 책 제목에 담긴 문장'}}" },
+    { "type": "book", "title": "{{도서명}}", "author": "{{저자}} 지음 · 필름", "copy": "{{리커버·판본 안내}}" },
+    { "type": "cta", "title": "{{N}}년 전의 문장이\n**오늘의 당신**에게", "body": "{{공유 동기}}", "actions": ["저장해두기", "이 책을 처음 읽은 친구에게 보내기"] }
+  ],
+  "caption": "『{{도서명}}』 출간 {{N}}주년 🎞\n\n{{본문 2줄}}",
+  "hashtags": ["#필름출판사", "#{{도서명붙여쓰기}}", "#{{저자}}", "#스테디셀러", "#책스타그램"]
+}

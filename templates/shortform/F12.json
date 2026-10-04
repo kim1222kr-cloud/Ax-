@@ -1,0 +1,23 @@
+{
+  "_template": { "format_id": "F12", "name": "대표의 1분 — 작가 김상현 브리지 쇼츠", "tier": "red", "note": "대표가 직접 쓴 문장 원문만(에이전트 창작 금지). 대표 사진은 manifest 동의 기록이 있을 때만. 17억 빚·건강 서사는 grant(ceo_story) 필수. '작가 김상현' 표기. 대표가 publish 승인, 주 1건." },
+  "track": "essay",
+  "format": "short_9x16",
+  "book": "{{도서 slug}}",
+  "book_title": "작가 김상현",
+  "disclosure": null,
+  "voice": { "provider": "none" },
+  "bgm": null,
+  "cover_scene": 0,
+  "scenes": [
+    { "type": "hook", "text": "{{대표의 질문 — 원문}}", "sub": "작가 김상현", "duration": 2.6 },
+    { "type": "caption", "text": "{{대표가 직접 쓴 문장 원문 1}}", "duration": 3.6 },
+    { "type": "caption", "text": "{{대표가 직접 쓴 문장 원문 2}}", "duration": 3.6 },
+    { "type": "book", "title": "{{도서명}}", "author": "김상현 지음 · 필름", "copy": "{{한 줄 카피}}", "duration": 3.0 },
+    { "type": "cta", "text": "풀버전은\n**작가 김상현 채널**에서", "handle": "필름 출판사", "duration": 2.6 }
+  ],
+  "title": "{{대표의 질문}} | 작가 김상현의 1분",
+  "description": "작가 김상현의 1분.\n『{{도서명}}』(필름)\n풀버전: 유튜브 '작가 김상현'",
+  "tags": ["김상현", "작가 김상현", "{{도서명}}", "에세이", "필름출판사"],
+  "caption": "{{첫 줄: 질문}}\n\n작가 김상현 『{{도서명}}』",
+  "hashtags": ["#필름출판사", "#작가김상현", "#{{도서명붙여쓰기}}", "#에세이추천"]
+}

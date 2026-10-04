@@ -1,0 +1,13 @@
+{
+  "_comment": "승인자 명단(사람이 작성). --by 표기는 아래 name 과 같게 쓴다. ceo 는 레드 티어 최종 승인과 grant(ceo_story) 담당. 승인은 Claude Code 밖 별도 터미널에서만.",
+  "lead": { "name": "", "role": "마케팅 리드 — 기획·시안 승인, 그린·옐로 최종 승인" },
+  "deputy": { "name": "", "role": "리드 부재 시 대리 승인" },
+  "ceo": { "name": "김상현", "role": "대표 — 레드 최종 승인, grant ceo_story" },
+  "editorial": { "name": "", "role": "편집부 — grant quotes(인용 원문·쪽수 확인)" },
+  "legal": { "name": "", "role": "법무 — grant legal" },
+  "sla": {
+    "plan": "월 16:00 (주간 일괄)",
+    "draft": "화 14:00",
+    "publish": "수 11:00 (레드는 대표 목 11:00)"
+  }
+}

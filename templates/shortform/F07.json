@@ -1,0 +1,24 @@
+{
+  "_template": { "format_id": "F07", "name": "메이드인 필름 — 금요 비하인드", "tier": "green", "note": "image 는 manifest 에 등록된 실사만(생성형 AI 금지, 직원 얼굴은 초상 동의서 필요). 사람이 편집한 영상을 쓰면 build:short 를 돌리지 않고 out/shortform/ 에 사람이 넣는다(brief 에 '수동 실사 영상' 명시)." },
+  "track": "essay",
+  "format": "short_9x16",
+  "book": "{{이번 주 신간 slug}}",
+  "book_title": "메이드인 필름",
+  "disclosure": null,
+  "voice": { "provider": "none" },
+  "bgm": null,
+  "cover_scene": 0,
+  "scenes": [
+    { "type": "hook", "text": "이 표지가\n**나오기까지**", "image": "{{assets/실사-표지시안.jpg}}", "duration": 2.6 },
+    { "type": "caption", "text": "{{교정지 단계 한 줄}}", "image": "{{assets/실사-교정지.jpg}}", "duration": 3.0 },
+    { "type": "caption", "text": "{{표지 시안 단계 한 줄}}", "image": "{{assets/실사-시안.jpg}}", "duration": 3.0 },
+    { "type": "caption", "text": "{{입고 현장 한 줄}}", "image": "{{assets/실사-입고.jpg}}", "duration": 3.0 },
+    { "type": "book", "title": "{{도서명}}", "author": "{{저자}} 지음 · 필름", "copy": "{{출간 안내}}", "duration": 3.0 },
+    { "type": "cta", "text": "다음 주 표지 투표는\n**댓글로**", "handle": "필름 출판사", "duration": 2.6 }
+  ],
+  "title": "이 표지가 나오기까지 | 메이드인 필름 #{{N}}",
+  "description": "출판사 필름의 금요 비하인드.\n이번 주: {{저자}} 『{{도서명}}』",
+  "tags": ["출판사 브이로그", "책 만들기", "{{도서명}}", "필름출판사"],
+  "caption": "메이드인 필름 #{{N}} 🎞\n\n{{본문}}\n다음 주 표지 투표는 댓글로!",
+  "hashtags": ["#필름출판사", "#메이드인필름", "#{{도서명붙여쓰기}}", "#출판사", "#책만들기"]
+}

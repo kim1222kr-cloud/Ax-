@@ -17,6 +17,7 @@
     "publish:ig": "node --env-file-if-exists=.env tools/publish-instagram.mjs",
     "publish:yt": "node --env-file-if-exists=.env tools/publish-youtube.mjs",
     "metrics": "node --env-file-if-exists=.env tools/fetch-metrics.mjs",
+    "check:approval": "node tools/check-approval.mjs",
     "test": "node --test tools/test/*.test.mjs"
   },
   "dependencies": {

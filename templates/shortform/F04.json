@@ -1,0 +1,24 @@
+{
+  "_template": { "format_id": "F04", "name": "3줄 인사이트 — 숏폼", "tier": "green", "note": "총 25~30초. 저자 권위는 공식 경력 사실만. 인용·저자 사진은 rights.json 범위 안에서만." },
+  "track": "insight",
+  "format": "short_9x16",
+  "book": "{{도서 slug}}",
+  "book_title": "{{도서명}}",
+  "disclosure": null,
+  "voice": { "provider": "none" },
+  "bgm": null,
+  "cover_scene": 0,
+  "scenes": [
+    { "type": "hook", "text": "{{의외의 질문}}", "sub": "{{저자 경력 사실}}의 답", "duration": 2.6, "motion": "zoom" },
+    { "type": "caption", "text": "1. **{{원칙 1}}**", "sub": "{{한 줄 설명}}", "duration": 3.2 },
+    { "type": "caption", "text": "2. **{{원칙 2}}**", "sub": "{{한 줄 설명}}", "duration": 3.2 },
+    { "type": "caption", "text": "3. **{{원칙 3}}**", "sub": "{{한 줄 설명}}", "duration": 3.2 },
+    { "type": "book", "title": "{{도서명}}", "author": "{{저자}} 지음 · {{역자}} 옮김 · 필름", "copy": "{{한 줄 카피}}", "duration": 3.2 },
+    { "type": "cta", "text": "저장해두고\n**월요일에 다시**", "handle": "필름 출판사", "duration": 2.6 }
+  ],
+  "title": "{{의외의 질문}} — {{저자}}의 3줄 답",
+  "description": "{{설명}}\n{{저자}} 『{{도서명}}』({{역자}} 옮김, 필름)\n\n#책추천 #경제경영",
+  "tags": ["{{도서명}}", "{{저자}}", "책 추천", "경제경영", "필름출판사"],
+  "caption": "{{첫 줄: 질문}}\n\n{{저자}} 『{{도서명}}』 · 필름",
+  "hashtags": ["#필름출판사", "#{{도서명붙여쓰기}}", "#{{저자}}", "#경제경영", "#책추천"]
+}

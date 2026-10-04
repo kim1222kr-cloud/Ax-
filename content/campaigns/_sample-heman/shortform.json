@@ -10,7 +10,7 @@
     { "type": "hook", "text": "나만 헤매는 것 같을 때\n**이 문장**을 기억하세요", "duration": 2.6, "motion": "zoom" },
     { "type": "caption", "text": "다들 정답을 아는 것 같은데\n나만 제자리인 기분", "duration": 2.8 },
     { "type": "caption", "text": "그런데 그 헤맨 걸음이\n정말 **헛걸음**이었을까요?", "duration": 2.8 },
-    { "type": "quote", "text": "헤맨 만큼\n**내 땅이다**", "source": "김상현 『헤맨 만큼 내 땅이다』", "duration": 3.2 },
+    { "type": "quote", "text": "헤맨 만큼\n**내 땅이다**", "source": "책 제목에 담긴 문장 · 김상현 『헤맨 만큼 내 땅이다』", "duration": 3.2 },
     { "type": "book", "title": "헤맨 만큼 내 땅이다", "author": "김상현 지음 · 필름", "copy": "성공 공식이 아니라\n**헤매는 나를 믿는 법**", "duration": 3.4 },
     { "type": "cta", "text": "길을 잃은 친구에게\n**공유**해 주세요", "sub": "프로필 링크에서 책을 만나보세요", "duration": 2.6 }
   ],

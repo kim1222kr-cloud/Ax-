@@ -1,0 +1,23 @@
+{
+  "_template": { "format_id": "F11", "name": "신간 D-7 카운트다운 — 숏폼(회차별)", "tier": "green", "note": "D-7·D-3·D-day 3편. 회차마다 훅·이미지를 바꿔 양산형으로 보이지 않게." },
+  "track": "essay",
+  "format": "short_9x16",
+  "book": "{{신간 slug}}",
+  "book_title": "{{도서명}}",
+  "disclosure": null,
+  "voice": { "provider": "none" },
+  "bgm": null,
+  "cover_scene": 0,
+  "scenes": [
+    { "type": "hook", "text": "D-{{N}}\n**{{~한 당신에게}}**", "duration": 2.6, "motion": "zoom" },
+    { "type": "caption", "text": "{{이 책이 답하는 질문}}", "duration": 3.0 },
+    { "type": "caption", "text": "{{기대 포인트}}", "duration": 3.0 },
+    { "type": "book", "title": "{{도서명}}", "author": "{{저자}} 지음 · 필름", "copy": "{{출간일}} 출간", "duration": 3.2 },
+    { "type": "cta", "text": "가장 먼저\n**만나보세요**", "handle": "필름 출판사", "sub": "예약판매는 프로필 링크에서", "duration": 2.6 }
+  ],
+  "title": "D-{{N}} {{저자}} 신작 『{{도서명}}』",
+  "description": "『{{전작}}』 {{저자}} 작가 신작.\n{{출간일}} 출간 · 필름",
+  "tags": ["{{도서명}}", "{{저자}}", "신간", "책 추천", "필름출판사"],
+  "caption": "D-{{N}} 📖\n\n『{{도서명}}』 {{출간일}} 출간",
+  "hashtags": ["#필름출판사", "#{{도서명붙여쓰기}}", "#{{저자}}", "#신간", "#책추천"]
+}

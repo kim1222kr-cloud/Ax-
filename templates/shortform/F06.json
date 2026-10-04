@@ -1,0 +1,24 @@
+{
+  "_template": { "format_id": "F06", "name": "크리에이터 저자 [광고] 콜라보", "tier": "yellow(무상) / red(유료)", "note": "유료·협찬이면 campaign.json sponsored:true 또는 author_collab.paid → disclosure '광고', title 맨 앞 [광고], caption·description 첫 줄 [광고]. 저자 목소리 복제 TTS 금지. 구독자 수는 claims 등록·저자 합의분만." },
+  "track": "essay",
+  "format": "short_9x16",
+  "book": "{{도서 slug}}",
+  "book_title": "{{도서명}}",
+  "disclosure": "광고",
+  "voice": { "provider": "none" },
+  "bgm": null,
+  "cover_scene": 0,
+  "scenes": [
+    { "type": "hook", "text": "{{저자의 대표 질문}}", "sub": "{{저자명}}", "image": "{{assets/저자제공사진.jpg — manifest 등록분}}", "duration": 2.6 },
+    { "type": "caption", "text": "{{책 핵심 1}}", "duration": 3.0 },
+    { "type": "caption", "text": "{{책 핵심 2}}", "duration": 3.0 },
+    { "type": "quote", "text": "{{저자 승인 문장}}", "source": "{{저자명}} 『{{도서명}}』", "duration": 3.4 },
+    { "type": "book", "title": "{{도서명}}", "author": "{{저자명}} 지음 · 필름", "copy": "{{한 줄 카피}}", "duration": 3.0 },
+    { "type": "cta", "text": "{{저자명}} 채널에서\n**이어보기**", "handle": "필름 출판사", "duration": 2.6 }
+  ],
+  "title": "[광고] {{저자명}} 『{{도서명}}』 {{훅}}",
+  "description": "[광고] 필름출판사 × {{저자명}}\n{{설명}}\n{{저자명}} 『{{도서명}}』(필름)",
+  "tags": ["{{도서명}}", "{{저자명}}", "책 추천", "필름출판사"],
+  "caption": "[광고] 필름출판사 × {{저자명}}\n\n{{본문}}",
+  "hashtags": ["#필름출판사", "#{{도서명붙여쓰기}}", "#{{저자명}}", "#책추천"]
+}

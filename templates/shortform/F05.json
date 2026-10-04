@@ -1,0 +1,25 @@
+{
+  "_template": { "format_id": "F05", "name": "저자의 숫자, 당신의 체크리스트 — 숏폼", "tier": "yellow", "note": "개인 사례 고지 장면 필수. 수익액 단독 훅 금지. 총 25~35초." },
+  "track": "money",
+  "format": "short_9x16",
+  "book": "{{도서 slug}}",
+  "book_title": "{{도서명}}",
+  "disclosure": null,
+  "voice": { "provider": "none" },
+  "bgm": null,
+  "cover_scene": 0,
+  "scenes": [
+    { "type": "hook", "text": "{{질문 훅: ~, 어디서부터?}}", "duration": 2.6, "motion": "zoom" },
+    { "type": "caption", "text": "{{저자}}의 개인 사례예요", "sub": "수익을 보장하지 않습니다", "duration": 2.4 },
+    { "type": "caption", "text": "STEP 1\n**{{단계 1}}**", "duration": 3.0 },
+    { "type": "caption", "text": "STEP 2\n**{{단계 2}}**", "duration": 3.0 },
+    { "type": "caption", "text": "STEP 3\n**{{단계 3}}**", "duration": 3.0 },
+    { "type": "book", "title": "{{도서명}}", "author": "{{저자}} 지음 · 필름", "copy": "{{한 줄 카피}}", "duration": 3.2 },
+    { "type": "cta", "text": "체크리스트는\n**저장**해 두세요", "handle": "필름 출판사", "duration": 2.6 }
+  ],
+  "title": "{{질문 훅}} | {{저자}}의 체크리스트",
+  "description": "{{설명}}\n※ 저자의 개인 사례이며 수익을 보장하지 않습니다.\n{{저자}} 『{{도서명}}』(필름)",
+  "tags": ["{{도서명}}", "{{저자}}", "재테크", "돈 공부", "필름출판사"],
+  "caption": "{{첫 줄: 질문}}\n\n※ 저자의 개인 사례이며 수익을 보장하지 않습니다.\n{{저자}} 『{{도서명}}』",
+  "hashtags": ["#필름출판사", "#{{도서명붙여쓰기}}", "#재테크", "#돈공부", "#책추천"]
+}

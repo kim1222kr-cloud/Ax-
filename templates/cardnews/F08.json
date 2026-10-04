@@ -1,0 +1,18 @@
+{
+  "_template": { "format_id": "F08", "name": "카페 공명의 한 자리", "tier": "green", "note": "cover image 는 manifest 에 등록된 매장 실사만. 쿠폰·구매 결합 혜택이 붙으면 레드(도서정가제 합산 15% 검토)." },
+  "track": "essay",
+  "format": "card_4x5",
+  "book": "{{도서 slug}}",
+  "book_title": "『{{도서명}}』 {{저자}} · 필름",
+  "disclosure": null,
+  "ai_label": false,
+  "slides": [
+    { "type": "cover", "kicker": "카페 공명 · {{지점}}", "title": "{{지점}} 공명 {{자리}}에서\n**읽은 문장**", "subtitle": "{{공간 한 줄}}", "image": "{{assets/매장실사.jpg}}" },
+    { "type": "quote", "text": "{{승인 문장}}", "page": "{{p.000}}" },
+    { "type": "text", "title": "{{공간과 책을 잇는 제목}}", "body": "{{2줄}}" },
+    { "type": "book", "title": "{{도서명}}", "author": "{{저자}} 지음 · 필름", "copy": "{{한 줄 카피}}" },
+    { "type": "cta", "title": "이번 주말,\n**공명**에서 펼쳐 보세요", "body": "{{지점 정보 1줄}}", "actions": ["저장해두기", "같이 갈 친구에게 보내기"] }
+  ],
+  "caption": "{{첫 줄}}\n\n{{지점}} 공명에서 『{{도서명}}』을 펼쳤어요.\n📍 {{지점 위치}}",
+  "hashtags": ["#필름출판사", "#카페공명", "#{{도서명붙여쓰기}}", "#책카페", "#책스타그램"]
+}

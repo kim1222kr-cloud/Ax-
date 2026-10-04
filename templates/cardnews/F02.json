@@ -1,0 +1,19 @@
+{
+  "_template": { "format_id": "F02", "name": "필름이 고른 MBTI 책 처방", "tier": "green", "note": "대표 도서만 --book, 나머지는 campaign.json featured_books. 수치·stat 금지. '필름 직원이 고른'·'100권'은 assets/mbti-selection.* 기록이 있을 때만." },
+  "track": "essay",
+  "format": "card_4x5",
+  "book": "{{대표 도서 slug}}",
+  "book_title": "필름이 펴낸 책",
+  "disclosure": null,
+  "ai_label": false,
+  "slides": [
+    { "type": "cover", "kicker": "MBTI 책 처방 · {{회차}}", "title": "**{{유형}}**에게\n{{필름 직원이 고른 / 필름이 펴낸}} 책", "subtitle": "{{유형 한 줄 묘사: ~한 편이라면}}" },
+    { "type": "text", "title": "{{유형}}, 이런 편이라면", "body": "{{특징 1}}\n{{특징 2}}\n{{특징 3}}" },
+    { "type": "book", "title": "{{도서명 1}}", "author": "{{저자 1}} · 필름", "copy": "{{이 유형에게 맞는 이유 1줄}}" },
+    { "type": "book", "title": "{{도서명 2}}", "author": "{{저자 2}} · 필름", "copy": "{{이 유형에게 맞는 이유 1줄}}" },
+    { "type": "list", "title": "이런 날 펼쳐보세요", "items": ["{{상황 1}}", "{{상황 2}}", "{{상황 3}}"] },
+    { "type": "cta", "title": "친구는 어떤 유형인가요?", "body": "다음 회차: {{다음 유형}}", "actions": ["친구 유형 태그하기", "저장해두기", "다음 유형 예고 보기"] }
+  ],
+  "caption": "모두 필름이 펴낸 책이에요 📚\n\n{{유형}}에게 건네고 싶은 책을 골랐어요.\n여러분의 유형은 무엇인가요?",
+  "hashtags": ["#필름출판사", "#MBTI책추천", "#{{유형}}", "#책추천", "#책스타그램"]
+}

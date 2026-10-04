@@ -1,0 +1,4 @@
+{
+  "_comment": "series-planner 만 항목을 추가한다(기존 항목 수정 금지). 판정은 performance-analyst 가 D+7, arm당 2건 이상, 상대 차이 20% 기준으로.",
+  "experiments": []
+}

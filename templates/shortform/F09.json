@@ -1,0 +1,23 @@
+{
+  "_template": { "format_id": "F09", "name": "다시 읽히는 책 — 쇼츠", "tier": "green", "note": "수치는 claims 등록분+시점. 허구·익명 독자 사연 금지. 총 20초 내외." },
+  "track": "essay",
+  "format": "short_9x16",
+  "book": "{{도서 slug}}",
+  "book_title": "{{도서명}}",
+  "disclosure": null,
+  "voice": { "provider": "none" },
+  "bgm": null,
+  "cover_scene": 0,
+  "scenes": [
+    { "type": "hook", "text": "{{N}}년째\n**읽히는 문장**", "duration": 2.6, "motion": "zoom" },
+    { "type": "caption", "text": "{{출간 당시 사실 한 줄}}", "duration": 3.0 },
+    { "type": "quote", "text": "{{승인 문장 또는 책 제목 문장}}", "source": "{{저자}} 『{{도서명}}』", "duration": 3.4 },
+    { "type": "book", "title": "{{도서명}}", "author": "{{저자}} 지음 · 필름", "copy": "{{판본 안내}}", "duration": 3.0 },
+    { "type": "cta", "text": "처음 읽은 친구에게\n**보내주세요**", "handle": "필름 출판사", "duration": 2.6 }
+  ],
+  "title": "{{N}}년째 읽히는 문장 — {{저자}} 『{{도서명}}』",
+  "description": "출간 {{N}}주년.\n{{저자}} 『{{도서명}}』(필름)",
+  "tags": ["{{도서명}}", "{{저자}}", "스테디셀러", "책 추천", "필름출판사"],
+  "caption": "출간 {{N}}주년 🎞\n\n{{저자}} 『{{도서명}}』",
+  "hashtags": ["#필름출판사", "#{{도서명붙여쓰기}}", "#{{저자}}", "#스테디셀러", "#책추천"]
+}

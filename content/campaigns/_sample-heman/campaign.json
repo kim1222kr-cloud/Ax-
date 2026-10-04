@@ -1,0 +1,22 @@
+{
+  "id": "_sample-heman",
+  "book": "heman-mankeum",
+  "book_title": "헤맨 만큼 내 땅이다",
+  "author": "김상현",
+  "track": "essay",
+  "format_id": "F01",
+  "series": null,
+  "risk_tier": "yellow",
+  "deliverables": ["cardnews", "shortform"],
+  "channels": ["instagram", "youtube"],
+  "goal": "데모: 대표 신작의 핵심 메시지를 문장 처방 카드로 전달",
+  "target_reader": "길을 잃은 것 같다고 느끼는 2030",
+  "key_message": "헤맨 시간도 전부 내 땅이 된다",
+  "primary_metric": "saves_rate",
+  "experiment": null,
+  "featured_books": [],
+  "sponsored": false,
+  "author_collab": null,
+  "scheduled_at": null,
+  "owner": "데모"
+}

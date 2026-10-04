@@ -1,0 +1,24 @@
+{
+  "_template": { "format_id": "F01", "name": "문장 처방 카드 — 숏폼 컷다운", "tier": "green", "note": "기본 무TTS(voice none)·bgm null. hook ≤2.6초. 총 15~20초." },
+  "track": "essay",
+  "format": "short_9x16",
+  "book": "{{도서 slug}}",
+  "book_title": "{{도서명}}",
+  "disclosure": null,
+  "voice": { "provider": "none" },
+  "bgm": null,
+  "cover_scene": 0,
+  "scenes": [
+    { "type": "hook", "text": "{{상황 질문 훅}}\n**{{핵심 단어}}**", "duration": 2.6, "motion": "zoom" },
+    { "type": "caption", "text": "{{공감 1}}\n{{공감 2}}", "duration": 2.8 },
+    { "type": "caption", "text": "{{전환 질문}}\n**{{핵심}}**", "duration": 2.8 },
+    { "type": "quote", "text": "{{승인 문장 또는 책 제목 문장}}", "source": "{{저자}} 『{{도서명}}』", "duration": 3.2 },
+    { "type": "book", "title": "{{도서명}}", "author": "{{저자}} 지음 · 필름", "copy": "{{한 줄 카피}}", "duration": 3.2 },
+    { "type": "cta", "text": "{{공유 대상}}에게\n**보내주세요**", "handle": "필름 출판사", "sub": "프로필 링크에서 책을 만나보세요", "duration": 2.6 }
+  ],
+  "title": "{{훅 문장 40자 이내}} #{{도서명붙여쓰기}}",
+  "description": "{{설명 1~2줄}}\n{{저자}} 『{{도서명}}』(필름)\n\n#에세이추천 #책추천",
+  "tags": ["{{도서명}}", "{{저자}}", "에세이 추천", "책 추천", "필름출판사"],
+  "caption": "{{첫 줄: 훅}}\n\n{{저자}} 『{{도서명}}』\n📖 프로필 링크",
+  "hashtags": ["#필름출판사", "#{{도서명붙여쓰기}}", "#{{저자}}", "#에세이추천", "#책추천"]
+}
